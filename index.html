@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document Signing</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+
+        .document-container {
+            margin-top: 20px;
+        }
+
+        .document {
+            background-color: #f2f2f2;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 10px;
+        }
+
+        .document h2 {
+            margin-top: 0;
+        }
+
+        .sign-button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin-top: 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .sign-button:hover {
+            background-color: #45a049;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .form-container {
+            background-color: #f2f2f2;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+
+        input[type="text"], input[type="email"], input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin-top: 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        .page-buttons {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .page-buttons button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin: 0 5px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .page-buttons button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Document Signing</h1>
+    </header>
+
+    <div class="container">
+        <div class="document-container">
+            <h2>Documentos Não Assinados</h2>
+            <div class="document">
+                <h3>Document Title 1</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nec dolor nec justo sagittis porta.</p>
+                <button class="sign-button">Sign Document</button>
+            </div>
+
+            <div class="document">
+                <h3>Document Title 2</h3>
+                <p>Donec faucibus arcu non justo tempus, nec lobortis neque vehicula. Aliquam erat volutpat.</p>
+                <button class="sign-button">Sign Document</button>
+            </div>
+        </div>
+
+        <div class="document-container" id="signed-documents" style="display: none;">
+            <h2>Documentos Assinados</h2>
+            <div class="document">
+                <h3>Document Title 3</h3>
+                <p>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Donec id bibendum est.</p>
+                <p><strong>Status: Assinado</strong></p>
+            </div>
+
+            <div class="document">
+                <h3>Document Title 4</h3>
+                <p>Fusce lacinia metus et tortor fermentum, eget lobortis purus malesuada.</p>
+                <p><strong>Status: Assinado</strong></p>
+            </div>
+        </div>
+
+        <div class="page-buttons">
+            <button onclick="showUnsigned()">Documentos Não Assinados</button>
+            <button onclick="showSigned()">Documentos Assinados</button>
+        </div>
+
+        <div class="form-container">
+            <h2>Cadastre-se</h2>
+            <form action="/cadastro" method="post">
+                <label for="name">Nome:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="password">Senha:</label>
+                <input type="password" id="password" name="password" required>
+
+                <input type="submit" value="Cadastrar">
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Document Signing Inc.</p>
+    </footer>
+
+    <script>
+        function showUnsigned() {
+            document.getElementById('signed-documents').style.display = 'none';
+            document.getElementById('unsigned-documents').style.display = 'block';
+        }
+
+        function showSigned() {
+            document.getElementById('unsigned-documents').style.display = 'none';
+            document.getElementById('signed-documents').style.display = 'block';
+        }
+    </script>
+
+    <!-- Código Python para cadastro de usuários -->
+    {% if erro %}
+    <div class="alert">
+        {{ erro }}
+    </div>
+    {% endif %}
+
+    {% if sucesso %}
+    <div class="alert success">
+        Cadastro realizado com sucesso!
+    </div>
+    {% endif %}
+</body>
+</html>
+
+
